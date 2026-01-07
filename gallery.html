@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery - Weather App</title>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      height: 100%;
+    }
+
+    body {
+      overflow-y: auto;
+    }
+
+    /* Navbar full width, fixed height */
+    nav {
+      background-color: rgba(0, 0, 0, 0.4);
+      height: 80px;
+      width: 100vw;
+      display: flex;
+      justify-content: center;  /* horizontal center */
+      align-items: center;      /* vertical center */
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    /* Remove default ul styling and center contents */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      width: 800px;       /* fixed width */
+      justify-content: center;  /* center all nav links horizontally */
+      align-items: center;      /* center vertically */
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 5px 15px;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Container for slider content */
+    .container {
+      width: 800px;
+      margin: 15px auto 40px auto; /* 15px gap below navbar */
+      min-height: 100vh;
+      background: #f0f0f0;
+      overflow-x: hidden;  /* prevent horizontal scroll */
+    }
+
+    /* Slider fixed width and overflow hidden */
+    .slider {
+      width: 800px;
+      overflow: hidden;
+      border-radius: 12px;
+      background-color: transparent;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    /* Slides flex container with fixed total width */
+    .slides {
+      display: flex;
+      width: 4000px; /* 5 slides × 800px each */
+      transition: transform 0.8s ease-in-out;
+    }
+
+    /* Each slide fixed size */
+    .slide {
+      width: 800px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Image fixed size */
+    .slide img {
+      width: 800px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      user-select: none;
+      pointer-events: none;
+      display: block;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    .caption {
+      margin-top: 10px;
+      text-align: center;
+      padding: 10px;
+      max-width: 780px;
+    }
+
+    .caption h2 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .caption p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Hide scrollbars */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="Home page.html">Home</a></li>
+      <li><a href="forecast.html">Forecast</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="form.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main container -->
+  <div class="container">
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <div class="slide">
+          <img src="mounteverest.jpg" alt="Mt Everest" />
+          <div class="caption">
+            <h2>Mt Everest</h2>
+            <p>The average temperature is -2°C (28°F) in July to a low of -36°C (-33°F).
+              The pressure is approximately 253 mmHg.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="ilam weather.jpg" alt="Ilam" />
+          <div class="caption">
+            <h2>Ilam</h2>
+            <p>The average temperature in Ilam, Nepal, ranges from 18°C (64°F) to 30°C (86°F) in the summer, while winter temperatures can drop to 8°C (46°F).</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="pokhara-view-from-world-peace-stupa.jpg" alt="Stormy Weather" />
+          <div class="caption">
+            <h2>Pokhera</h2>
+            <p>The average temperature in Pokhara is around 21.5°C (70.7°F). The average humidity is around 71%. The average air pressure is around 29.80 "Hg. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="Dadeldhura.jpg" alt="Mountain Mist" />
+          <div class="caption">
+            <h2>Dadeldhura</h2>
+            <p>The average temperature in Dadeldhura, Nepal is around 18°C (64°F), with humidity levels around 71-88% and air pressure at approximately 798 hPa (station level) or 1000 hPa (sea level). </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="BIRATNAGAR.jpg" alt="Rain in Forest" />
+          <div class="caption">
+            <h2>Biratnagar</h2>
+            <p>The average temperature in Biratnagar varies seasonally, ranging from a mean of 60°F in January to 87°F in May. The average humidity is around 76%, while the average pressure is 29.76 "Hg</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery auto slider script -->
+  <script>
+    $(document).ready(function (){
+      let currentSlide = 0;
+      const totalSlides = $(".slide").length;
+
+      function updateSlide() {
+        const slideWidth = 800; // fixed width
+        $(".slides").css("transform", "translateX(" + (-currentSlide * slideWidth) + "px)");
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlide();
+      }
+
+      setInterval(nextSlide, 3000);
+      $(window).resize(updateSlide);
+      updateSlide();
+    });
+  </script>
+
+</body>
+</html>

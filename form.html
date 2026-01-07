@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #dfe6e9;
+      color: #000000; /* black text */
+      padding-top: 80px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.4);
+      /* position:sticky; */
+      position:absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 30px 30px;
+      z-index: 999;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #000000; /* black */
+    }
+
+    .form-container input,
+    .form-container textarea,
+    .form-container input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2f2e2e; /* black text */
+    }
+
+    /* Make date input text black */
+    .form-container input[type="date"] {
+      color: #302f2f;
+    }
+
+    /* Fix placeholder text color in Chrome/Edge for date input */
+    .form-container input[type="date"]::-webkit-datetime-edit {
+      color: #000000;
+    }
+
+    /* Calendar icon default */
+    .form-container input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: none;
+    }
+
+    .form-container label {
+      display: block;
+      text-align: left;
+      font-weight: 500;
+      margin-bottom: 5px;
+      margin-top: 10px;
+       /* black */
+      font-size: 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container textarea {
+      resize: vertical;
+      min-height: 100px;
+      color: #000000; /* black */
+    }
+
+    /* Placeholder text color black */
+    .form-container input::placeholder,
+    .form-container textarea::placeholder {
+      color: #373636;
+      opacity: 0.6; /* a bit lighter for placeholders */
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #90ad62;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #3b3837;
+    }
+
+    #messageBox {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #000000; /* black */
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="Home page.html">Home</a></li>
+      <li><a href="forecast.html">Forecast</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="form.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Form -->
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="tel" id="phone" name="phone"
+             placeholder="97XXXXXXXX or 98XXXXXXXX"
+             pattern="^(97|98)\d{8}$"
+             title="Must be 10 digits starting with 97 or 98"
+             required />
+      <input type="text" id="address" placeholder="Your Address" required />
+
+      <label for="date"></label>
+      <input type="date" id="date" name="date" required />
+
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div id="messageBox"></div>
+  </div>
+
+  <!-- JavaScript for Form Validation -->
+  <script>
+    const form = document.getElementById("contactForm");
+    const messageBox = document.getElementById("messageBox");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const date = document.getElementById("date").value;
+      const message = document.getElementById("message").value.trim();
+
+      if(!name || !email || !phone || !address || !date || !message) {
+        messageBox.style.color = "orange";
+        messageBox.textContent = "Please fill out all fields.";
+        return;
+      }
+
+      if (!/^(97|98)\d{8}$/.test(phone)) {
+        messageBox.style.color = "orange";
+        messageBox.textContent = "Phone number must be 10 digits starting with 97 or 98.";
+        return;
+      }
+
+      messageBox.style.color = "lightgreen";
+      messageBox.textContent = "Thank you! Your message has been sent.";
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
