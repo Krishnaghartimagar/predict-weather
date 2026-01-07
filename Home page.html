@@ -1,13 +1,21 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WeatherSphere - Home</title>
-  <meta name="description" content="Stay updated with live weather conditions, accurate forecasts, temperature, humidity, wind speed, and rain alerts. Our weather website delivers real-time data for any location with a clean and fast interface.">
-   <meta name="author" content="Krishna Gharti Magar,Santosh Khanal,Janardan Parajuli">
-   <meta name="keywords" content="weather, live weather, weather forecast, temperature, humidity, wind speed, rain alert, real-time weather, local weather, weather Nepal, Krishna weather site">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WeatherSphere | Live Weather Updates</title>
+
+  <meta name="description" content="WeatherSphere provides real-time weather updates, accurate forecasts, humidity, wind speed, and rain alerts.">
+  <meta name="author" content="Krishna Gharti Magar, Santosh Khanal, Janardan Parajuli">
+  <meta name="keywords" content="weather, live weather, forecast, Nepal weather, temperature, humidity">
+
+  <!-- Favicon (removes 404 error) -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Local Font Awesome (No tracking issue) -->
+  <link rel="stylesheet" href="css/all.min.css">
+
   <style>
     * {
       margin: 0;
@@ -23,11 +31,10 @@
     }
 
     nav {
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 15px 30px;
+      background: rgba(0,0,0,0.4);
+      padding: 15px;
       display: flex;
       justify-content: center;
-      align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -39,16 +46,16 @@
     }
 
     .nav-links a {
-      color: #ffffff;
+      color: white;
       text-decoration: none;
-      font-size: 1.2rem;
-      padding: 5px 15px;
-      transition: background-color 0.3s ease;
-      border-radius: 5px;
+      font-size: 1.1rem;
+      padding: 6px 16px;
+      border-radius: 6px;
+      transition: 0.3s;
     }
 
     .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255,255,255,0.2);
     }
 
     .hero {
@@ -57,36 +64,37 @@
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       margin-bottom: 20px;
       text-shadow: 2px 2px #333;
     }
 
     .hero p {
-      font-size: 1.3rem;
       max-width: 600px;
-      margin: 0 auto 30px;
+      margin: auto;
+      font-size: 1.2rem;
       line-height: 1.6;
     }
 
-    .get-started-btn {
-      background-color: white;
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      background: white;
       color: #0077ff;
-      padding: 12px 25px;
+      padding: 12px 28px;
       border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
+      transition: 0.3s;
     }
 
-    .get-started-btn:hover {
-      background-color: #f0f0f0;
+    .btn:hover {
+      background: #f1f1f1;
     }
 
     .features {
-      background-color: rgba(0, 0, 0, 0.2);
-      padding: 40px 20px;
+      background: rgba(0,0,0,0.2);
+      padding: 50px 20px;
       text-align: center;
     }
 
@@ -102,20 +110,15 @@
     }
 
     .feature {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 15px;
+      background: rgba(255,255,255,0.15);
       width: 250px;
+      padding: 25px;
+      border-radius: 15px;
     }
 
     .feature i {
-      font-size: 2rem;
+      font-size: 2.3rem;
       margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .feature p {
-      font-size: 1rem;
     }
 
     @media (max-width: 600px) {
@@ -129,26 +132,30 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav>
     <div class="nav-links">
-      <a href="Home page.html">Home</a>
+      <a href="home.html">Home</a>
       <a href="forecast.html">Forecast</a>
       <a href="gallery.html">Gallery</a>
-      <a href="form.html">Contact Us</a>
+      <a href="form.html">Contact</a>
     </div>
   </nav>
 
-  <!-- Welcome Section -->
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Welcome to WeatherSphere</h1>
-    <p>Your real-time weather assistant. Stay informed about the temperature, forecast, humidity, and moreany time, anywhere.</p>
-    <a href="forecast.html" class="get-started-btn">Check Weather</a>
+    <p>
+      Your real-time weather assistant. Stay informed about temperature,
+      humidity, forecasts, and more — anytime, anywhere.
+    </p>
+    <a href="forecast.html" class="btn">Check Weather</a>
   </section>
 
-  <!-- Features Section -->
+  <!-- Features -->
   <section class="features">
     <h2>🌟 Key Features</h2>
     <div class="feature-list">
@@ -158,15 +165,15 @@
       </div>
       <div class="feature">
         <i class="fas fa-map-marker-alt"></i>
-        <p>Location-Based Search</p>
+        <p>Location Based Search</p>
       </div>
       <div class="feature">
         <i class="fas fa-cloud-sun-rain"></i>
-        <p>5-Day Weather Forecast</p>
+        <p>5-Day Forecast</p>
       </div>
       <div class="feature">
         <i class="fas fa-mobile-alt"></i>
-        <p>Responsive on All Devices</p>
+        <p>Mobile Friendly</p>
       </div>
     </div>
   </section>
